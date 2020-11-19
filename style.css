@@ -1,0 +1,361 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(0deg, rgba(9, 8, 32, 0.75), rgba(0, 0, 0, 0.75)),
+    url('./covid.jpg') no-repeat center center fixed;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  width: 100%;
+  height: 100vh;
+}
+
+h2 {
+  font-size: 1.75rem;
+}
+.title {
+  margin-top: 0px;
+  text-align: center;
+  background-color: black;
+  width: 100%;
+}
+
+.title h1 {
+  margin-top: 0px;
+  padding-top: 10px;
+  font-size: 4rem;
+}
+.input {
+  margin-top: 10%;
+  animation: fadeIn 2s;
+}
+.input,
+.state {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.state {
+  margin-top: 50px;
+  display: none;
+  animation: fadeIn 2s;
+}
+.covidData {
+  text-align: center;
+  margin: 0% 30%;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+.country {
+  display: inline-flexbox;
+  margin-bottom: 0px;
+}
+
+.country h1 {
+  font-size: 2em;
+  font-weight: bold;
+  line-height: 2;
+}
+
+.country img {
+  height: 55px;
+}
+.population {
+  padding: 2px;
+  margin-top: 0px;
+  margin-bottom: 20px;
+  background-color: rgba(35, 174, 255, 0.75);
+  border: solid 4px rgba(255, 255, 255, 0.75);
+}
+.cases {
+  margin-bottom: 20px;
+  padding: 2px;
+  background-color: rgba(0, 0, 0, 0.75);
+  border: solid 4px rgba(255, 255, 255, 0.75);
+}
+
+.deaths {
+  margin-bottom: 20px;
+  background-color: rgba(255, 0, 0, 0.75);
+  border: solid 4px rgba(255, 255, 255, 0.75);
+}
+
+.recovered {
+  background-color: rgba(0, 255, 13, 0.75);
+  border: solid 4px rgba(255, 255, 255, 0.75);
+  margin-bottom: 30px;
+  padding: 2px;
+}
+
+.fadeIn {
+  animation: fadeIn 1s;
+}
+
+.fadeOut {
+  animation: fadeOut 1s;
+}
+canvas {
+  padding-bottom: 20px;
+  max-height: 75vh;
+}
+#leftpic {
+  float: left;
+}
+
+#canvasChart {
+  position: absolute;
+  margin-left: 12%;
+  margin-right: 12%;
+  width: 75%;
+
+  background-color: rgba(225, 249, 255, 0.98);
+  color: black;
+  margin-bottom: 50px;
+  z-index: 2;
+  border-radius: 10px;
+  border: solid 4px black;
+  box-shadow: 4px 4px rgba(0, 0, 0, 0.75);
+  display: none;
+}
+#x {
+  position: absolute;
+  right: 5%;
+  top: 1%;
+  cursor: pointer;
+}
+#canvasTitle {
+  text-align: center;
+  justify-content: center;
+  font-size: 2.5rem;
+}
+#x:active {
+  transform: translate(2px, 2px);
+}
+#rightpic {
+  float: right;
+}
+#entercountry,
+#enterstate {
+  height: 50px;
+  width: 45%;
+  border-radius: 5px 5px 0px 0px;
+  font-size: 1.5rem;
+  text-align: center;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.9);
+}
+#myChart {
+  padding-right: 30px;
+  padding-left: 30px;
+}
+#submit,
+#submitstate,
+#showChart {
+  cursor: pointer;
+  position: relative;
+  width: 45%;
+  height: 50px;
+  background-color: black;
+  color: white;
+  border-radius: 0px 0px 5px 5px;
+  font-size: 1rem;
+  text-align: center;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+}
+
+#showChart {
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+#left {
+  float: left;
+  font-weight: bold;
+  cursor: pointer;
+}
+#right {
+  float: right;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#left:active {
+  transform: translate(2px, 2px);
+}
+
+#right:active {
+  transform: translate(-2px, 2px);
+}
+
+#bottom {
+  background-color: rgba(0, 0, 0, 0.75);
+}
+#showChart:focus,
+#submitstate:focus,
+#submit:focus {
+  outline: none;
+}
+
+#showChart:active,
+#submitstate:active,
+#submit:active {
+  transform: translate(2px, 2px);
+}
+#submitstate {
+  background: linear-gradient(0deg, rgba(9, 8, 32, 0.95), rgba(0, 0, 0, 0.95)),
+    url('./us.png') no-repeat center center;
+  background-size: cover;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+@media only screen and (max-width: 1012px) {
+  .country h1 {
+    font-size: 2em;
+  }
+  .covidData {
+    margin: 0 10%;
+  }
+  #entercountry,
+  #enterstate {
+    font-size: 1rem;
+  }
+  .country {
+    height: 55px;
+  }
+  .country img {
+    height: 45px;
+  }
+}
+
+@media only screen and (max-width: 865px) {
+  .country h1 {
+    font-size: 1.5em;
+  }
+
+  .covidData h2 {
+    font-size: 1.5rem;
+  }
+  #myChart {
+    width: 50%;
+  }
+  #canvasChart {
+    margin-top: 10vh;
+    width: 99vw;
+    margin: 0 50px 0 0;
+  }
+  #canvasTitle {
+    font-size: 1.5rem;
+  }
+  #showChart {
+    font-size: 0.75rem;
+  }
+  #enter {
+    margin-top: 20%;
+  }
+  #entercountry,
+  #enterstate,
+  #submit,
+  #submitstate {
+    width: 75%;
+  }
+  .input {
+    margin-top: 5%;
+  }
+  .input,
+  .state {
+    font-size: 0.75rem;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .country h1 {
+    font-size: 80%;
+  }
+  .covidData h2 {
+    font-size: 1.25rem;
+  }
+  .title h1 {
+    font-size: 2rem;
+  }
+  .country {
+    height: 40px;
+  }
+  .country img {
+    height: 35px;
+  }
+  #canvasTitle {
+    font-size: 1.25rem;
+  }
+  #myChart {
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+  #canvasChart {
+    height: 50%;
+    padding-bottom: 50px;
+  }
+  #x {
+    right: 2%;
+    top: 0;
+  }
+  #enter {
+    margin-top: 40%;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+  #left,
+  #right {
+    font-size: 0.75rem;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .covidData h2 {
+    font-size: 0.9rem;
+  }
+  .covidData h3 {
+    font-size: 0.75rem;
+  }
+  #canvasChart h1 {
+    font-size: 0.75rem;
+  }
+  #left,
+  #right {
+    font-size: 0.5rem;
+  }
+  #entercountry,
+  #enterstate,
+  #submit,
+  #submitstate {
+    width: 90%;
+    height: 30px;
+  }
+}

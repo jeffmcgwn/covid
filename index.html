@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="./cv.png" type="image/x-icon" />
+
+    <title>Covid-19</title>
+  </head>
+  <body>
+    <div class="title">
+      <h1>COVID-19 Tracker</h1>
+    </div>
+
+    <div id="canvasChart">
+      <h1 id="x">x</h1>
+      <h1 id="canvasTitle">Test</h1>
+
+      <canvas id="myChart"></canvas>
+    </div>
+    <div class="covidData">
+      <div class="country"></div>
+      <div class="population"></div>
+      <div class="cases"></div>
+      <div class="deaths"></div>
+      <div class="recovered"></div>
+
+      <button id="showChart">SHOW CHART</button>
+      <div id="bottom">
+        <p>
+          <span id="left"><< Try another country</span>
+          <span id="right">Try a US state >></span>
+        </p>
+      </div>
+    </div>
+
+    <div class="input">
+      <h2 id="enter">Enter country</h2>
+      <form>
+        <input type="text" id="entercountry" placeholder="Enter country name" />
+        <br />
+        <button id="submit">Submit</button>
+      </form>
+    </div>
+    <div class="state">
+      <h2>Enter state</h2>
+      <form>
+        <input
+          type="text"
+          id="enterstate"
+          placeholder="Enter state code (ex: MA, RI, NC etc...)"
+        />
+        <br />
+        <button id="submitstate">Submit</button>
+      </form>
+    </div>
+    <div style="width: 640px; height: 480px" id="mapContainer"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
